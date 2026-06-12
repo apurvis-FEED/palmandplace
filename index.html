@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Palm & Place | Custom Designs, Couture Tailoring & Ready-to-Wear Collections</title>
+  <meta name="description" content="Palm & Place offers bespoke custom designs, couture tailoring, and curated ready-to-wear collections. Timeless elegance meets modern vision.">
+  <link rel="canonical" href="https://www.palmandplace.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Palm & Place | Timeless Elegance Meets Modern Vision">
+  <meta property="og:description" content="Custom designs, couture tailoring & ready-to-wear collections. Where the vintage meets modern.">
+  <meta property="og:image" content="https://www.palmandplace.com/P-P_Green-100.jpg">
+  <meta property="og:url" content="https://www.palmandplace.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Palm & Place">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Palm & Place | Timeless Elegance Meets Modern Vision">
+  <meta name="twitter:description" content="Custom designs, couture tailoring & ready-to-wear collections.">
+  <meta name="twitter:image" content="https://www.palmandplace.com/P-P_Green-100.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Palm & Place",
+    "url": "https://www.palmandplace.com",
+    "logo": "https://www.palmandplace.com/P-P_Green-100.jpg",
+    "description": "Custom designs, couture tailoring & ready-to-wear collections. Timeless elegance meets modern vision.",
+    "sameAs": [
+      "https://www.instagram.com",
+      "https://www.behance.net",
+      "https://www.linkedin.com"
+    ]
+  }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brown: {
+              50:  '#f5efe8',
+              100: '#ede6dc',
+              200: '#d4c5b0',
+              300: '#b8a48a',
+              400: '#584d40',
+              500: '#35302a',
+              600: '#2a2520',
+              700: '#201c17',
+              800: '#15120f',
+              900: '#0f0d0b',
+            },
+            cream: '#f5efe8',
+            gold:  '#C9A86C',
+          },
+          fontFamily: {
+            display: ['"warbler-display"', 'Georgia', 'serif'],
+            deck:    ['"warbler-deck"', 'Georgia', 'serif'],
+            body:    ['"warbler-text"', 'Georgia', 'serif'],
+            sans:    ['"ofelia-text"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/zxq6zvf.css">
+
+  <style>
+    /* ── Base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'warbler-text', Georgia, serif;
+      background-color: #f5efe8;
+      color: #35302a;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-display { font-family: 'warbler-display', Georgia, serif; }
+    .font-sans    { font-family: 'ofelia-text', system-ui, sans-serif; }
+
+    /* ── Scroll progress bar ── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: #C9A86C; width: 0%;
+      z-index: 9999; transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    /* ── Nav glass ── */
+    .nav-glass {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(245, 239, 232, 0.92);
+    }
+
+    /* ── Mobile menu ── */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-menu.open { max-height: 320px; }
+
+    /* ── Reveal on scroll ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.10s; }
+    .reveal-d2 { transition-delay: 0.20s; }
+    .reveal-d3 { transition-delay: 0.30s; }
+    .reveal-d4 { transition-delay: 0.40s; }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #35302a; color: #f5efe8;
+      padding: 0.75rem 1.75rem; border-radius: 9999px;
+      font-size: 0.875rem; font-weight: 400; letter-spacing: 0.05em;
+      font-family: 'ofelia-text', sans-serif;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #201c17; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(53,48,42,0.28); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1.5px solid currentColor; border-radius: 9999px;
+      padding: 0.75rem 1.75rem;
+      font-size: 0.875rem; font-weight: 600; letter-spacing: 0.025em;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-ghost-white {
+      color: #fff; border-color: rgba(255,255,255,0.5);
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.9); }
+    .btn-ghost-brown {
+      color: #35302a; border-color: #35302a;
+      background: transparent;
+    }
+    .btn-ghost-brown:hover { background: #35302a; color: #f5efe8; }
+
+    /* ── Cards ── */
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(53,48,42,0.14);
+    }
+    .testimonial-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.09);
+    }
+
+    /* ── Focus ring ── */
+    *:focus-visible {
+      outline: 2px solid #35302a;
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ── Section divider line ── */
+    .section-label {
+      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block; width: 2rem; height: 1px;
+      background: #C9A86C;
+      flex-shrink: 0;
+    }
+
+    /* ── Hero image cover ── */
+    .hero-img-wrap {
+      position: absolute;
+      inset: 0;
+    }
+  </style>
+</head>
+
+<body class="antialiased">
+
+<!-- Scroll progress -->
+<div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════ -->
+<header id="navbar" class="nav-glass fixed top-0 inset-x-0 z-50 border-b border-black/[0.06] transition-shadow duration-300">
+  <nav
+    class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between"
+    role="navigation"
+    aria-label="Main navigation"
+  >
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2.5 flex-shrink-0 group" aria-label="Palm & Place — Home">
+      <img
+        src="https://www.palmandplace.com/P-P_Green-100.jpg"
+        alt="Palm & Place"
+        class="w-9 h-9 rounded-full object-cover ring-1 ring-black/10 group-hover:ring-brown-400 transition-all"
+        width="36" height="36"
+      >
+      <span class="font-display text-lg font-normal text-brown-500 tracking-wide hidden sm:inline" style="letter-spacing:0.05em;">Palm &amp; Place</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="hidden md:flex items-center gap-7" role="list">
+      <li>
+        <a href="/" class="font-sans text-sm font-light text-brown-500 relative after:absolute after:bottom-[-3px] after:left-0 after:w-full after:h-[1.5px] after:bg-brown-400 after:rounded-full" style="letter-spacing:0.04em;">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="https://www.palmandplace.com/about" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors duration-200" style="letter-spacing:0.04em;">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="https://www.palmandplace.com/collections" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors duration-200" style="letter-spacing:0.04em;">
+          Collections
+        </a>
+      </li>
+      <li>
+        <a href="https://www.palmandplace.com/contact" class="btn-primary !py-2 !px-5 text-sm">
+          Contact
+        </a>
+      </li>
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-btn"
+      class="md:hidden p-2 -mr-1 rounded-lg hover:bg-brown-50 transition-colors"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg id="icon-open" class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 7h18M3 12h18M3 17h18"/>
+      </svg>
+      <svg id="icon-close" class="w-5 h-5 text-gray-700 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="mobile-menu md:hidden border-t border-black/[0.05] nav-glass" role="dialog" aria-label="Mobile navigation">
+    <ul class="max-w-6xl mx-auto px-5 py-3 flex flex-col gap-0.5" role="list">
+      <li><a href="/"                                        class="block px-3 py-2.5 text-sm font-semibold text-brown-500 rounded-lg bg-brown-50">Home</a></li>
+      <li><a href="https://www.palmandplace.com/about"       class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">About</a></li>
+      <li><a href="https://www.palmandplace.com/collections" class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Collections</a></li>
+      <li class="pt-1 pb-1">
+        <a href="https://www.palmandplace.com/contact" class="block btn-primary justify-center text-sm !px-5 !py-2.5">
+          Contact
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section id="hero" aria-label="Hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Full-bleed background image -->
+  <div class="hero-img-wrap" aria-hidden="true">
+    <img
+      src="hero.jpg.jpeg"
+      alt=""
+      role="presentation"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+      width="2600" height="1457"
+    >
+    <!-- Dark overlay for text legibility -->
+    <div class="absolute inset-0 bg-black/40"></div>
+    <!-- Subtle vignette bottom -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
+  </div>
+
+  <!-- Centered text content -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-center px-5 sm:px-8 py-32">
+
+    <!-- Decorative rule + label -->
+    <div class="flex items-center gap-4 mb-7">
+      <div class="w-10 h-px" style="background:rgba(245,239,232,0.5);"></div>
+      <span class="font-sans text-[10px] font-light tracking-[0.28em] uppercase" style="color:rgba(245,239,232,0.75);">Est. Miami, Florida</span>
+      <div class="w-10 h-px" style="background:rgba(245,239,232,0.5);"></div>
+    </div>
+
+    <!-- Main brand name -->
+    <h1 class="font-display font-normal leading-none mb-4"
+        style="font-size: clamp(52px, 8vw, 96px); letter-spacing: 0.05em; color: #f5efe8;">
+      Palm &amp; Place
+    </h1>
+
+    <!-- Sub-brand -->
+    <p class="font-display font-normal"
+       style="font-size: clamp(13px, 2vw, 18px); letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 3rem; color: #f5efe8;">
+      Miami Interiors
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href="https://www.palmandplace.com/collections" class="btn-primary">
+        View Collections
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+      <a href="https://www.palmandplace.com/contact"
+         class="btn-outline"
+         style="color:#f5efe8; border-color:rgba(245,239,232,0.5); background:rgba(245,239,232,0.08);"
+         onmouseover="this.style.background='rgba(245,239,232,0.18)'"
+         onmouseout="this.style.background='rgba(245,239,232,0.08)'"
+      >
+        Get in Touch
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2" aria-hidden="true">
+    <span class="font-sans text-[9px] tracking-[0.22em] uppercase" style="color:rgba(245,239,232,0.5);">Scroll</span>
+    <div class="w-px h-7 animate-pulse rounded-full" style="background:rgba(245,239,232,0.3);"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════ -->
+<section id="services" aria-label="Our services" class="py-24 sm:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <div class="section-label reveal">
+      <span class="font-sans text-[11px] text-brown-400 uppercase tracking-[0.18em]">Our Services</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+      <!-- Column 1 — Investors & Developers -->
+      <article class="service-card rounded-2xl p-8 lg:p-10 reveal reveal-d1 bg-brown-500" aria-label="For Investors and Developers">
+
+        <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Investors &amp; Developers</p>
+
+        <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Instant Interiors</h3>
+
+        <div class="space-y-4">
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            Turn a vacant unit into a rental-ready property — fast. We handle everything: sourcing, procurement, and installation of all furnishings, fixtures, textiles, and art. You approve the concept; we deliver the finished space, ready for your first tenant.
+          </p>
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            Professionally designed and furnished properties command higher rents and shorter vacancy periods. A well-appointed unit attracts quality tenants and justifies premium pricing — directly improving your return.
+          </p>
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            We work with condo investors and developers across Miami who need a reliable, design-forward partner — not another variable to manage. Projects can be completed in as little as 6 weeks.
+          </p>
+        </div>
+
+      </article>
+
+      <!-- Column 2 — Homeowners -->
+      <article class="service-card bg-brown-100 rounded-2xl p-8 lg:p-10 reveal reveal-d2" aria-label="For Homeowners">
+
+        <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Homeowners</p>
+
+        <h3 class="font-display text-3xl font-normal text-brown-500 leading-snug mb-6">Your Home, Designed</h3>
+
+        <div class="space-y-4">
+          <p class="font-body leading-[1.8] text-[0.9rem] text-brown-400">
+            Whether you've just moved in or are ready to refresh your space, we bring the full design process to you — curating furnishings, textiles, fixtures, decor, and art that reflect how you actually live.
+          </p>
+          <p class="font-body leading-[1.8] text-[0.9rem] text-brown-400">
+            No construction. No overwhelm. Just a cohesive, finished space without the stress of doing it yourself.
+          </p>
+          <p class="font-body leading-[1.8] text-[0.9rem] text-brown-400">
+            Available for primary residences, second homes, and vacation properties throughout South Florida.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     COLLECTIONS
+═══════════════════════════════════════ -->
+<section id="collections" aria-label="Collections" class="py-24 sm:py-32 bg-cream overflow-hidden">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Image col -->
+      <div class="relative reveal">
+        <!-- Decorative squares -->
+        <div class="absolute -bottom-5 -right-5 w-28 h-28 bg-brown-100 rounded-2xl -z-10" aria-hidden="true"></div>
+        <div class="absolute -top-5 -left-5 w-20 h-20 bg-gold/20 rounded-xl -z-10" aria-hidden="true"></div>
+
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl shadow-black/10">
+          <img
+            src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-1753.webp"
+            alt="Collections — where vintage hints of fashion history meet modern design"
+            class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+            loading="lazy"
+            width="600" height="800"
+          >
+        </div>
+      </div>
+
+      <!-- Text col -->
+      <div class="reveal reveal-d1">
+        <div class="section-label">
+          <span class="text-[11px] font-semibold text-brown-500 uppercase tracking-[0.18em]">Collections</span>
+        </div>
+
+        <h2 class="font-display text-4xl sm:text-5xl lg:text-[3.25rem] font-light text-gray-900 leading-[1.15] mb-6">
+          Reimagine the Retro.<br>
+          <em class="italic text-brown-500">The Vintage Meets Modern.</em>
+        </h2>
+
+        <p class="text-gray-500 leading-[1.8] mb-10 text-[0.95rem]">
+          Step into a world where the past meets the present. The timeless influences from vintage hints of fashion history, art, and culture are reimagined into modern designs. It's where nostalgia sparks innovation, shaping the creative vision behind every collection.
+        </p>
+
+        <a href="https://www.palmandplace.com/collections" class="btn-primary">
+          View Full Collections
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════ -->
+<section id="testimonials" aria-label="Client testimonials" class="py-24 sm:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <!-- Header -->
+    <div class="max-w-lg mb-14 reveal">
+      <div class="section-label">
+        <span class="text-[11px] font-semibold text-brown-500 uppercase tracking-[0.18em]">Testimonials</span>
+      </div>
+      <h2 class="font-display text-4xl sm:text-5xl font-light text-gray-900 leading-tight mb-4">
+        What Clients Are Saying
+      </h2>
+      <p class="text-gray-500 text-[0.9rem] leading-relaxed">
+        Discover what clients love about working with Crystal. Real stories of inspired designs, unique style, and a creative touch.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+      <!-- ── Testimonial 1 ── -->
+      <article class="testimonial-card bg-cream rounded-2xl p-6 flex flex-col gap-4 reveal reveal-d1" aria-label="Review by Emily R">
+        <header class="flex items-center gap-3">
+          <img
+            src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-1756.webp"
+            alt="Emily R"
+            class="w-10 h-10 rounded-full object-cover flex-shrink-0"
+            loading="lazy" width="40" height="40"
+          >
+          <div>
+            <p class="text-sm font-semibold text-gray-900 leading-tight">Emily R</p>
+            <p class="text-xs text-brown-400 mt-0.5">Style Enthusiast</p>
+          </div>
+        </header>
+        <div class="flex gap-0.5 text-gold text-sm" aria-label="5 stars" role="img">★★★★★</div>
+        <blockquote class="text-[0.85rem] text-gray-500 leading-relaxed flex-1">
+          "Crystal's designs are pure magic, and it feels like a work of art. Her attention to detail and exquisite creative touch turn ideas into wearable art"
+        </blockquote>
+        <time class="text-[0.75rem] text-gray-300 font-medium" datetime="2024-02-23">23 Feb. 2024</time>
+      </article>
+
+      <!-- ── Testimonial 2 (accent) ── -->
+      <article class="testimonial-card bg-brown-500 rounded-2xl p-6 flex flex-col gap-4 reveal reveal-d2" aria-label="Review by Sophie L">
+        <header class="flex items-center gap-3">
+          <img
+            src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-1757.webp"
+            alt="Sophie L"
+            class="w-10 h-10 rounded-full object-cover flex-shrink-0"
+            loading="lazy" width="40" height="40"
+          >
+          <div>
+            <p class="text-sm font-semibold text-white leading-tight">Sophie L</p>
+            <p class="text-xs text-white/55 mt-0.5">Bride</p>
+          </div>
+        </header>
+        <div class="flex gap-0.5 text-gold text-sm" aria-label="5 stars" role="img">★★★★★</div>
+        <blockquote class="text-[0.85rem] text-white/80 leading-relaxed flex-1">
+          "Working with Crystal was an incredible experience. Her custom gown fit me perfectly and made me feel more confident than ever. Timeless elegance with a modern twist."
+        </blockquote>
+        <time class="text-[0.75rem] text-white/35 font-medium" datetime="2024-03-14">14 March. 2024</time>
+      </article>
+
+      <!-- ── Testimonial 3 ── -->
+      <article class="testimonial-card bg-cream rounded-2xl p-6 flex flex-col gap-4 reveal reveal-d3" aria-label="Review by Lena M">
+        <header class="flex items-center gap-3">
+          <img
+            src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-1758.webp"
+            alt="Lena M"
+            class="w-10 h-10 rounded-full object-cover flex-shrink-0"
+            loading="lazy" width="40" height="40"
+          >
+          <div>
+            <p class="text-sm font-semibold text-gray-900 leading-tight">Lena M</p>
+            <p class="text-xs text-brown-400 mt-0.5">Photographer</p>
+          </div>
+        </header>
+        <div class="flex gap-0.5 text-gold text-sm" aria-label="5 stars" role="img">★★★★★</div>
+        <blockquote class="text-[0.85rem] text-gray-500 leading-relaxed flex-1">
+          "She understood my vision from the start and delivered beyond expectations. Every detail felt so incredibly personal and precise. It was a true pleasure to work with her."
+        </blockquote>
+        <time class="text-[0.75rem] text-gray-300 font-medium" datetime="2024-03-12">12 March 2024</time>
+      </article>
+
+      <!-- ── Testimonial 4 ── -->
+      <article class="testimonial-card bg-cream rounded-2xl p-6 flex flex-col gap-4 reveal reveal-d4" aria-label="Review by Amanda T">
+        <header class="flex items-center gap-3">
+          <img
+            src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-1756.webp"
+            alt="Amanda T"
+            class="w-10 h-10 rounded-full object-cover flex-shrink-0"
+            loading="lazy" width="40" height="40"
+          >
+          <div>
+            <p class="text-sm font-semibold text-gray-900 leading-tight">Amanda T</p>
+            <p class="text-xs text-brown-400 mt-0.5">Fashion Editor</p>
+          </div>
+        </header>
+        <div class="flex gap-0.5 text-gold text-sm" aria-label="5 stars" role="img">★★★★★</div>
+        <blockquote class="text-[0.85rem] text-gray-500 leading-relaxed flex-1">
+          "Crystal's couture work is unforgettable. Her designs change how you see yourself in clothes. Couldn't say more about how luxurious and wearable it was!"
+        </blockquote>
+        <time class="text-[0.75rem] text-gray-300 font-medium" datetime="2024-06-08">8 June. 2024</time>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     CTA — CONTACT
+═══════════════════════════════════════ -->
+<section id="contact" aria-label="Contact — call to action" class="relative py-28 sm:py-36 overflow-hidden">
+
+  <!-- Background image + overlay -->
+  <div class="absolute inset-0" aria-hidden="true">
+    <img
+      src="https://static.zohocdn.com/sites/stock-images/images/zpstock-image-1760.webp"
+      alt=""
+      role="presentation"
+      class="w-full h-full object-cover object-center"
+      loading="lazy"
+      width="1440" height="700"
+    >
+    <div class="absolute inset-0 bg-brown-900/80"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 text-center">
+    <div class="max-w-xl mx-auto reveal">
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <div class="w-8 h-px bg-white/25"></div>
+        <span class="text-[11px] font-semibold text-white/50 uppercase tracking-[0.18em]">Get in Touch</span>
+        <div class="w-8 h-px bg-white/25"></div>
+      </div>
+
+      <h2 class="font-display text-4xl sm:text-5xl lg:text-6xl font-light text-white leading-tight mb-3">
+        Looking to connect?
+      </h2>
+      <p class="font-display text-2xl sm:text-3xl italic text-white/55 mb-12 font-light">
+        I'd love to hear from you
+      </p>
+
+      <a
+        href="https://www.palmandplace.com/contact"
+        class="inline-flex items-center gap-2 bg-white text-brown-600 px-8 py-4 rounded-full text-sm font-semibold tracking-wide transition-all duration-200 hover:bg-cream hover:-translate-y-0.5 hover:shadow-lg focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brown-900"
+      >
+        Contact Me
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="bg-brown-900 text-white" role="contentinfo">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-10 sm:pt-20 sm:pb-12">
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-8 mb-14">
+
+      <!-- Brand -->
+      <div>
+        <a href="/" class="inline-flex items-center gap-2.5 mb-4 group" aria-label="Palm & Place — Home">
+          <img
+            src="https://www.palmandplace.com/P-P_Green-100.jpg"
+            alt="Palm & Place logo"
+            class="w-11 h-11 rounded-full object-cover ring-1 ring-white/10"
+            width="44" height="44" loading="lazy"
+          >
+          <span class="font-display text-xl font-medium text-white">Palm &amp; Place</span>
+        </a>
+        <p class="text-white/40 text-sm leading-relaxed max-w-[220px]">
+          Timeless elegance meets modern vision
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <nav aria-label="Footer navigation">
+        <h3 class="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">Quick Links</h3>
+        <ul class="flex flex-col gap-2.5" role="list">
+          <li><a href="/"                                        class="text-sm text-white/55 hover:text-white transition-colors duration-200">Home</a></li>
+          <li><a href="https://www.palmandplace.com/about"       class="text-sm text-white/55 hover:text-white transition-colors duration-200">About</a></li>
+          <li><a href="https://www.palmandplace.com/collections" class="text-sm text-white/55 hover:text-white transition-colors duration-200">Collections</a></li>
+          <li><a href="https://www.palmandplace.com/contact"     class="text-sm text-white/55 hover:text-white transition-colors duration-200">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Social -->
+      <div>
+        <h3 class="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">Follow Me On</h3>
+        <ul class="flex flex-col gap-2.5" role="list">
+          <li>
+            <a href="#" class="inline-flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors duration-200" aria-label="Instagram">
+              <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              Instagram
+            </a>
+          </li>
+          <li>
+            <a href="#" class="inline-flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors duration-200" aria-label="Behance">
+              <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 3.211 3.483 3.312 4.588 2.029H23.72zm-7.726-3h3.427c-.103-1.464-1.072-2.5-1.713-2.5-.64 0-1.619 1.036-1.714 2.5zM9.001 7.5c0-.828-.672-1.5-1.5-1.5h-5v3h5c.828 0 1.5-.672 1.5-1.5zM1 14.737C1 18.347 4.327 18 4.327 18H9v-2.5H4.961C4.098 15.5 4 14.962 4 14.362V13h5v-2.5H4V8.5H1v6.237z"/>
+              </svg>
+              Behance
+            </a>
+          </li>
+          <li>
+            <a href="#" class="inline-flex items-center gap-2 text-sm text-white/55 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
+              <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/[0.07] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-[0.75rem] text-white/25">© 2024 Palm &amp; Place. All rights reserved.</p>
+      <a href="javascript:;" class="text-[0.75rem] text-white/25 hover:text-white/50 transition-colors">
+        Privacy Policy · Privacy Collection Notice · Terms
+      </a>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ── Mobile menu ── */
+  var btn        = document.getElementById('menu-btn');
+  var menu       = document.getElementById('mobile-menu');
+  var iconOpen   = document.getElementById('icon-open');
+  var iconClose  = document.getElementById('icon-close');
+
+  btn.addEventListener('click', function () {
+    var isOpen = menu.classList.contains('open');
+    menu.classList.toggle('open');
+    iconOpen.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+  });
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+    });
+  });
+
+  /* ── Scroll progress bar ── */
+  var bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', function () {
+    var scrolled = document.documentElement.scrollTop;
+    var total    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    bar.style.width = ((scrolled / total) * 100).toFixed(1) + '%';
+  }, { passive: true });
+
+  /* ── Navbar shadow on scroll ── */
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function () {
+    navbar.classList.toggle('shadow-md', window.scrollY > 24);
+  }, { passive: true });
+
+  /* ── Scroll reveal (IntersectionObserver) ── */
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(function (el) { observer.observe(el); });
+
+})();
+</script>
+
+</body>
+</html>
