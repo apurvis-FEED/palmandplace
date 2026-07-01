@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal | Palm & Place</title>
+  <meta name="description" content="Design ideas, project stories, and interior inspiration from Palm & Place Miami.">
+  <link rel="canonical" href="https://www.palmandplace.com/blog">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brown: {
+              50:  '#f5efe8',
+              100: '#ede6dc',
+              200: '#d4c5b0',
+              300: '#b8a48a',
+              400: '#584d40',
+              500: '#35302a',
+              600: '#2a2520',
+              700: '#201c17',
+              800: '#15120f',
+              900: '#0f0d0b',
+            },
+            cream: '#f5efe8',
+            gold:  '#C9A86C',
+          },
+          fontFamily: {
+            display: ['"warbler-display"', 'Georgia', 'serif'],
+            body:    ['"warbler-text"', 'Georgia', 'serif'],
+            sans:    ['"ofelia-text"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/zxq6zvf.css">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      font-family: 'warbler-text', Georgia, serif;
+      background-color: #f5efe8;
+      color: #35302a;
+      -webkit-font-smoothing: antialiased;
+    }
+    .nav-glass {
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(245, 239, 232, 0.92);
+    }
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-menu.open { max-height: 320px; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #35302a; color: #f5efe8;
+      padding: 0.75rem 1.75rem; border-radius: 9999px;
+      font-size: 0.875rem; font-weight: 400; letter-spacing: 0.05em;
+      font-family: 'ofelia-text', sans-serif;
+      transition: background 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #201c17; transform: translateY(-2px); }
+    .section-label {
+      display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 2rem; height: 1px;
+      background: #C9A86C; flex-shrink: 0;
+    }
+    /* Post card */
+    .post-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .post-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(53,48,42,0.12); }
+    .post-card img { transition: transform 0.6s ease; }
+    .post-card:hover img { transform: scale(1.04); }
+  </style>
+</head>
+
+<body class="antialiased">
+
+<!-- ═══ NAVBAR ═══ -->
+<header id="navbar" class="nav-glass fixed top-0 inset-x-0 z-50 border-b border-black/[0.06]">
+  <nav class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between" role="navigation" aria-label="Main navigation">
+    <a href="/" class="flex items-center gap-2.5 flex-shrink-0 group" aria-label="Palm & Place — Home">
+      <img src="https://www.palmandplace.com/P-P_Green-100.jpg" alt="Palm & Place" class="w-9 h-9 rounded-full object-cover ring-1 ring-black/10" width="36" height="36">
+      <span class="font-display text-lg font-normal text-brown-500 tracking-wide hidden sm:inline" style="letter-spacing:0.05em;">Palm &amp; Place</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-7" role="list">
+      <li><a href="/#services"   class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors" style="letter-spacing:0.04em;">Services</a></li>
+      <li><a href="/#who-we-are" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors" style="letter-spacing:0.04em;">About</a></li>
+      <li><a href="/#process"    class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors" style="letter-spacing:0.04em;">Process</a></li>
+      <li><a href="https://www.palmandplace.com/contact" class="btn-primary !py-2 !px-5 text-sm">Contact</a></li>
+    </ul>
+    <button id="menu-btn" class="md:hidden p-2 -mr-1 rounded-lg hover:bg-brown-50 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="icon-open" class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 7h18M3 12h18M3 17h18"/></svg>
+      <svg id="icon-close" class="w-5 h-5 text-gray-700 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="mobile-menu md:hidden border-t border-black/[0.05] nav-glass">
+    <ul class="max-w-6xl mx-auto px-5 py-3 flex flex-col gap-0.5">
+      <li><a href="/#services"   class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Services</a></li>
+      <li><a href="/#who-we-are" class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">About</a></li>
+      <li><a href="/#process"    class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Process</a></li>
+      <li class="pt-1 pb-1"><a href="https://www.palmandplace.com/contact" class="block btn-primary justify-center text-sm !px-5 !py-2.5">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+
+<!-- ═══ PAGE HEADER ═══ -->
+<section class="pt-36 pb-16 sm:pt-44 sm:pb-20 bg-cream">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="section-label">
+      <span class="font-sans text-[11px] text-brown-400 uppercase tracking-[0.18em]">Palm &amp; Place</span>
+    </div>
+    <h1 class="font-display text-5xl sm:text-6xl font-normal text-brown-500 leading-tight mb-4" style="letter-spacing:0.02em;">
+      Journal
+    </h1>
+    <p class="font-body text-[0.95rem] text-brown-400 leading-relaxed max-w-lg">
+      Design ideas, project stories, and interior inspiration from Miami and beyond.
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══ BLOG POSTS ═══ -->
+<section class="pb-24 sm:pb-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <!-- ─── Post grid ─── -->
+    <!-- To add a new post: copy one <article> block below and update the
+         image src, date, category, title, excerpt, and read-more href.     -->
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+      <!-- ══ POST 1 — Viceroy Brickell ══ -->
+      <article class="post-card bg-white rounded-2xl overflow-hidden">
+        <a href="viceroy-brickell-interior-design.html" class="block">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="Viceroy_blog_01.jpg"
+              alt="Viceroy Brickell furnished studio interior design Miami"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            >
+          </div>
+        </a>
+        <div class="p-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold">Project Story</span>
+            <span class="text-brown-200 text-xs">·</span>
+            <time class="font-sans text-[10px] text-brown-300 uppercase tracking-[0.12em]" datetime="2025-06-01">June 2025</time>
+          </div>
+          <h2 class="font-display text-xl font-normal text-brown-500 leading-snug mb-3">
+            Viceroy Brickell Interior Design: What It Actually Takes to Furnish a Miami Rental Studio
+          </h2>
+          <p class="font-body text-sm text-brown-400 leading-relaxed mb-5">
+            We furnished a 539 SF south-facing studio for short-term rental. Here's what we built, why we built it, and what condo investors get wrong about furnishing units in Brickell.
+          </p>
+          <a href="viceroy-brickell-interior-design.html" class="font-sans text-xs uppercase tracking-[0.16em] text-brown-500 hover:text-gold transition-colors inline-flex items-center gap-2">
+            Read More
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- ══ ADD FUTURE POSTS BELOW THIS LINE ══ -->
+      <!-- Copy the <article> block above, update image/date/title/excerpt/href -->
+
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="bg-brown-900 text-white" role="contentinfo">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-10 sm:pt-20 sm:pb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-8 mb-14">
+      <div>
+        <a href="/" class="inline-flex items-center gap-2.5 mb-4 group">
+          <img src="https://www.palmandplace.com/P-P_Green-100.jpg" alt="Palm & Place logo" class="w-11 h-11 rounded-full object-cover ring-1 ring-white/10" width="44" height="44" loading="lazy">
+          <span class="font-display text-xl font-medium text-white">Palm &amp; Place</span>
+        </a>
+        <p class="text-white/40 text-sm leading-relaxed max-w-[220px]">Miami interior design, from concept to installation.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h3 class="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">Quick Links</h3>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="/"            class="text-sm text-white/55 hover:text-white transition-colors">Home</a></li>
+          <li><a href="/#services"   class="text-sm text-white/55 hover:text-white transition-colors">Services</a></li>
+          <li><a href="/#who-we-are" class="text-sm text-white/55 hover:text-white transition-colors">About</a></li>
+          <li><a href="/#process"    class="text-sm text-white/55 hover:text-white transition-colors">Process</a></li>
+          <li><a href="https://www.palmandplace.com/contact" class="text-sm text-white/55 hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h3 class="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/30 mb-5">Follow</h3>
+        <ul class="flex flex-col gap-2.5">
+          <li><a href="https://www.instagram.com/palm.and.place?igsh=Nno3dWhpb2JoYWs1&utm_source=qr" target="_blank" rel="noopener noreferrer" class="text-sm text-white/55 hover:text-white transition-colors">Instagram</a></li>
+          <li><a href="blog.html" class="text-sm text-white/55 hover:text-white transition-colors">Journal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/[0.07] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-[0.75rem] text-white/25">© 2025 Palm &amp; Place. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var btn       = document.getElementById('menu-btn');
+  var menu      = document.getElementById('mobile-menu');
+  var iconOpen  = document.getElementById('icon-open');
+  var iconClose = document.getElementById('icon-close');
+  btn.addEventListener('click', function () {
+    var isOpen = menu.classList.contains('open');
+    menu.classList.toggle('open');
+    iconOpen.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+})();
+</script>
+
+</body>
+</html>
