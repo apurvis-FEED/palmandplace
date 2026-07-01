@@ -3,16 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Viceroy Brickell Interior Design: Furnished Studio for Short-Term Rental | Palm & Place</title>
-  <meta name="description" content="We furnished a 539 SF studio at Viceroy Brickell for short-term rental. Here's what we built, why we built it, and what condo investors get wrong about furnishing rental units in Miami.">
-  <link rel="canonical" href="https://www.palmandplace.com/viceroy-brickell-interior-design">
+
+  <!-- SEO -->
+  <title>Palm & Place | Custom Designs, Couture Tailoring & Ready-to-Wear Collections</title>
+  <meta name="description" content="Palm & Place offers bespoke custom designs, couture tailoring, and curated ready-to-wear collections. Timeless elegance meets modern vision.">
+  <link rel="canonical" href="https://www.palmandplace.com/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Viceroy Brickell Interior Design: Furnished Studio for Short-Term Rental">
-  <meta property="og:description" content="We furnished a 539 SF studio at Viceroy Brickell for short-term rental. Here's what we built, why we built it, and what condo investors get wrong about furnishing rental units in Miami.">
-  <meta property="og:image" content="https://www.palmandplace.com/Viceroy_blog_01.jpg">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.palmandplace.com/viceroy-brickell-interior-design">
+  <meta property="og:title" content="Palm & Place | Timeless Elegance Meets Modern Vision">
+  <meta property="og:description" content="Custom designs, couture tailoring & ready-to-wear collections. Where the vintage meets modern.">
+  <meta property="og:image" content="https://www.palmandplace.com/P-P_Green-100.jpg">
+  <meta property="og:url" content="https://www.palmandplace.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Palm & Place">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Palm & Place | Timeless Elegance Meets Modern Vision">
+  <meta name="twitter:description" content="Custom designs, couture tailoring & ready-to-wear collections.">
+  <meta name="twitter:image" content="https://www.palmandplace.com/P-P_Green-100.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ClothingStore",
+    "name": "Palm & Place",
+    "url": "https://www.palmandplace.com",
+    "logo": "https://www.palmandplace.com/P-P_Green-100.jpg",
+    "description": "Custom designs, couture tailoring & ready-to-wear collections. Timeless elegance meets modern vision.",
+    "sameAs": [
+      "https://www.instagram.com",
+      "https://www.behance.net",
+      "https://www.linkedin.com"
+    ]
+  }
+  </script>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -38,6 +64,7 @@
           },
           fontFamily: {
             display: ['"warbler-display"', 'Georgia', 'serif'],
+            deck:    ['"warbler-deck"', 'Georgia', 'serif'],
             body:    ['"warbler-text"', 'Georgia', 'serif'],
             sans:    ['"ofelia-text"', 'system-ui', 'sans-serif'],
           },
@@ -49,311 +76,955 @@
   <!-- Adobe Fonts -->
   <link rel="stylesheet" href="https://use.typekit.net/zxq6zvf.css">
 
-  <!-- JSON-LD structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Viceroy Brickell Interior Design: What It Actually Takes to Furnish a Miami Rental Studio",
-    "image": "https://www.palmandplace.com/Viceroy_blog_01.jpg",
-    "author": { "@type": "Organization", "name": "Palm & Place" },
-    "publisher": { "@type": "Organization", "name": "Palm & Place", "url": "https://www.palmandplace.com" },
-    "datePublished": "2025-06-01",
-    "description": "We furnished a 539 SF studio at Viceroy Brickell for short-term rental. Here's what we built, why, and what Miami condo investors get wrong about furnishing rental units."
-  }
-  </script>
-
   <style>
+    /* ── Base ── */
     *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 16px; }
     body {
       font-family: 'warbler-text', Georgia, serif;
       background-color: #f5efe8;
       color: #35302a;
       -webkit-font-smoothing: antialiased;
     }
+    .font-display { font-family: 'warbler-display', Georgia, serif; }
+    .font-sans    { font-family: 'ofelia-text', system-ui, sans-serif; }
+
+    /* ── Scroll progress bar ── */
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: #C9A86C; width: 0%;
+      z-index: 9999; transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    /* ── Nav glass ── */
     .nav-glass {
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       background: rgba(245, 239, 232, 0.92);
     }
+
+    /* ── Mobile menu ── */
     .mobile-menu {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1);
     }
     .mobile-menu.open { max-height: 320px; }
+
+    /* ── Reveal on scroll ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.10s; }
+    .reveal-d2 { transition-delay: 0.20s; }
+    .reveal-d3 { transition-delay: 0.30s; }
+    .reveal-d4 { transition-delay: 0.40s; }
+
+    /* ── Buttons ── */
     .btn-primary {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: #35302a; color: #f5efe8;
       padding: 0.75rem 1.75rem; border-radius: 9999px;
       font-size: 0.875rem; font-weight: 400; letter-spacing: 0.05em;
       font-family: 'ofelia-text', sans-serif;
-      transition: background 0.2s ease, transform 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none;
     }
-    .btn-primary:hover { background: #201c17; transform: translateY(-2px); }
+    .btn-primary:hover { background: #201c17; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(53,48,42,0.28); }
+    .btn-primary:active { transform: translateY(0); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1.5px solid currentColor; border-radius: 9999px;
+      padding: 0.75rem 1.75rem;
+      font-size: 0.875rem; font-weight: 600; letter-spacing: 0.025em;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-ghost-white {
+      color: #fff; border-color: rgba(255,255,255,0.5);
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.9); }
+    .btn-ghost-brown {
+      color: #35302a; border-color: #35302a;
+      background: transparent;
+    }
+    .btn-ghost-brown:hover { background: #35302a; color: #f5efe8; }
+
+    /* ── Cards ── */
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(53,48,42,0.14);
+    }
+    .testimonial-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.09);
+    }
+
+    /* ── Focus ring ── */
+    *:focus-visible {
+      outline: 2px solid #35302a;
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ── Section divider line ── */
     .section-label {
       display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;
     }
     .section-label::before {
-      content: ''; display: block; width: 2rem; height: 1px;
-      background: #C9A86C; flex-shrink: 0;
+      content: '';
+      display: block; width: 2rem; height: 1px;
+      background: #C9A86C;
+      flex-shrink: 0;
     }
-    /* Article body styles */
-    .article-body h2 {
-      font-family: 'warbler-display', Georgia, serif;
-      font-size: clamp(1.35rem, 3vw, 1.75rem);
-      font-weight: 400;
-      color: #35302a;
-      letter-spacing: 0.02em;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      line-height: 1.25;
-    }
-    .article-body p {
-      font-family: 'warbler-text', Georgia, serif;
-      font-size: 1.0625rem;
-      color: #584d40;
-      line-height: 1.85;
-      margin-bottom: 1.5rem;
-    }
-    .article-body p:first-child {
-      font-size: 1.125rem;
-      color: #35302a;
-    }
-    /* Pull quote */
-    .pull-quote {
-      border-left: 2px solid #C9A86C;
-      padding: 1rem 1.5rem;
-      margin: 2.5rem 0;
-      background: rgba(201,168,108,0.06);
-      border-radius: 0 8px 8px 0;
-    }
-    .pull-quote p {
-      font-family: 'warbler-display', Georgia, serif !important;
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem) !important;
-      color: #35302a !important;
-      font-style: italic;
-      margin-bottom: 0 !important;
-      line-height: 1.5 !important;
-    }
-    /* Stat bar */
-    .stat-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(201,168,108,0.2);
-      border: 1px solid rgba(201,168,108,0.2);
-      border-radius: 12px;
-      overflow: hidden;
-      margin: 2.5rem 0;
-    }
-    .stat-cell {
-      background: #f5efe8;
-      padding: 1.25rem 1rem;
-      text-align: center;
-    }
-    .stat-value {
-      font-family: 'warbler-display', Georgia, serif;
-      font-size: 1.5rem;
-      color: #35302a;
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-    .stat-label {
-      font-family: 'ofelia-text', system-ui, sans-serif;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #b8a48a;
-    }
-    @media (max-width: 480px) {
-      .stat-row { grid-template-columns: repeat(2, 1fr); }
+
+    /* ── Hero image cover ── */
+    .hero-img-wrap {
+      position: absolute;
+      inset: 0;
     }
   </style>
 </head>
 
 <body class="antialiased">
 
-<!-- ═══ NAVBAR ═══ -->
-<header id="navbar" class="nav-glass fixed top-0 inset-x-0 z-50 border-b border-black/[0.06]">
-  <nav class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between" role="navigation" aria-label="Main navigation">
-    <a href="/" class="flex flex-col items-start flex-shrink-0 group leading-none" aria-label="Palm & Place — Home" style="text-decoration:none;">
-      <span class="font-display font-normal text-brown-500" style="font-size:1.45rem; letter-spacing:0.04em; line-height:1.1;">Palm &amp; Place</span>
-      <span class="font-sans font-light text-brown-400 tracking-widest" style="font-size:0.34rem; letter-spacing:0.35em; margin-top:3px; display:block; text-align:center; width:100%;">MIAMI INTERIORS</span>
+<!-- Scroll progress -->
+<div id="progress-bar" role="progressbar" aria-hidden="true"></div>
+
+<!-- ═══════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════ -->
+<header id="navbar" class="nav-glass fixed top-0 inset-x-0 z-50 border-b border-black/[0.06] transition-shadow duration-300">
+  <nav
+    class="max-w-6xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between"
+    role="navigation"
+    aria-label="Main navigation"
+  >
+    <!-- Logo -->
+    <a href="#hero" class="flex flex-col items-center flex-shrink-0 group leading-none" aria-label="Palm & Place — Home">
+      <span class="font-display font-normal text-brown-500" style="font-size:1.45rem; letter-spacing:0.05em; line-height:1.1;">Palm &amp; Place</span>
+      <span class="font-sans font-light text-brown-400" style="font-size:0.34rem; letter-spacing:0.35em; text-transform:uppercase; line-height:1.6; margin-top:3px;">Miami Interiors</span>
     </a>
+
+    <!-- Desktop links -->
     <ul class="hidden md:flex items-center gap-7" role="list">
-      <li><a href="/#services"    class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors" style="letter-spacing:0.04em;">Services</a></li>
-      <li><a href="/#who-we-are" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors" style="letter-spacing:0.04em;">About</a></li>
-      <li><a href="/#process"    class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors" style="letter-spacing:0.04em;">Process</a></li>
-      <li><a href="/#portfolio"  class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors" style="letter-spacing:0.04em;">Portfolio</a></li>
-      <li><a href="/#contact" class="btn-primary !py-2 !px-5 text-sm">Contact</a></li>
+      <li>
+        <a href="#services" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors duration-200" style="letter-spacing:0.04em;">
+          Services
+        </a>
+      </li>
+      <li>
+        <a href="#who-we-are" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors duration-200" style="letter-spacing:0.04em;">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="#process" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors duration-200" style="letter-spacing:0.04em;">
+          Process
+        </a>
+      </li>
+      <li>
+        <a href="#portfolio" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors duration-200" style="letter-spacing:0.04em;">
+          Portfolio
+        </a>
+      </li>
+      <li>
+        <a href="blog.html" class="font-sans text-sm font-light text-gray-500 hover:text-brown-500 transition-colors duration-200" style="letter-spacing:0.04em;">
+          Blog
+        </a>
+      </li>
+      <li>
+        <a href="#contact" class="btn-primary !py-2 !px-5 text-sm">
+          Contact
+        </a>
+      </li>
     </ul>
-    <button id="menu-btn" class="md:hidden p-2 -mr-1 rounded-lg hover:bg-brown-50 transition-colors" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-      <svg id="icon-open" class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 7h18M3 12h18M3 17h18"/></svg>
-      <svg id="icon-close" class="w-5 h-5 text-gray-700 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/></svg>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-btn"
+      class="md:hidden p-2 -mr-1 rounded-lg hover:bg-brown-50 transition-colors"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg id="icon-open" class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 7h18M3 12h18M3 17h18"/>
+      </svg>
+      <svg id="icon-close" class="w-5 h-5 text-gray-700 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
     </button>
   </nav>
-  <div id="mobile-menu" class="mobile-menu md:hidden border-t border-black/[0.05] nav-glass">
-    <ul class="max-w-6xl mx-auto px-5 py-3 flex flex-col gap-0.5">
-      <li><a href="/#services"    class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Services</a></li>
-      <li><a href="/#who-we-are" class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">About</a></li>
-      <li><a href="/#process"    class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Process</a></li>
-      <li><a href="/#portfolio"  class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Portfolio</a></li>
-      <li class="pt-1 pb-1"><a href="/#contact" class="block btn-primary justify-center text-sm !px-5 !py-2.5">Contact</a></li>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="mobile-menu md:hidden border-t border-black/[0.05] nav-glass" role="dialog" aria-label="Mobile navigation">
+    <ul class="max-w-6xl mx-auto px-5 py-3 flex flex-col gap-0.5" role="list">
+      <li><a href="#services"   class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Services</a></li>
+      <li><a href="#who-we-are" class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">About</a></li>
+      <li><a href="#process"    class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Process</a></li>
+      <li><a href="#portfolio"  class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Portfolio</a></li>
+      <li><a href="blog.html" class="block px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-brown-50 transition-colors">Blog</a></li>
+      <li class="pt-1 pb-1">
+        <a href="#contact" class="block btn-primary justify-center text-sm !px-5 !py-2.5">
+          Contact
+        </a>
+      </li>
     </ul>
   </div>
 </header>
 
 
-<!-- ═══ HERO IMAGE ═══ -->
-<div class="w-full pt-16" style="background:#f5efe8;">
-  <div class="max-w-5xl mx-auto px-5 sm:px-8 pt-12 pb-0">
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section id="hero" aria-label="Hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+  <!-- Full-bleed background image -->
+  <div class="hero-img-wrap" aria-hidden="true">
     <img
-      src="Viceroy_blog_01.jpg"
-      alt="Viceroy Brickell studio interior design — furnished rental Miami"
-      class="w-full rounded-2xl object-cover"
-      style="max-height:560px; object-position:center;"
-      width="1200"
-      height="560"
+      src="hero.jpg.jpeg"
+      alt=""
+      role="presentation"
+      class="w-full h-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+      width="2600" height="1457"
     >
+    <!-- Dark overlay for text legibility -->
+    <div class="absolute inset-0 bg-black/40"></div>
+    <!-- Subtle vignette bottom -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/50"></div>
   </div>
-</div>
 
+  <!-- Centered text content -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-center px-5 sm:px-8 py-32">
 
-<!-- ═══ ARTICLE ═══ -->
-<article class="bg-cream pt-14 pb-24 sm:pb-32">
-  <div class="max-w-2xl mx-auto px-5 sm:px-8">
-
-    <!-- Breadcrumb + meta -->
-    <div class="flex items-center gap-3 mb-8">
-      <a href="blog.html" class="font-sans text-[10px] uppercase tracking-[0.18em] text-gold hover:opacity-70 transition-opacity">Journal</a>
-      <span class="text-brown-200 text-xs">·</span>
-      <span class="font-sans text-[10px] uppercase tracking-[0.12em] text-brown-300">Project Story</span>
-      <span class="text-brown-200 text-xs">·</span>
-      <time class="font-sans text-[10px] text-brown-300 uppercase tracking-[0.12em]" datetime="2025-06-01">June 2025</time>
-    </div>
-
-    <!-- Headline -->
-    <h1 class="font-display text-brown-500 leading-tight mb-6" style="font-size:clamp(2rem,5vw,3rem); letter-spacing:0.02em; font-weight:400;">
-      Viceroy Brickell Interior Design: What It Actually Takes to Furnish a Miami Rental Studio
+    <!-- Main brand name -->
+    <h1 class="font-display font-normal leading-none mb-5"
+        style="font-size: clamp(52px, 8vw, 96px); letter-spacing: 0.05em; color: #f5efe8;">
+      Palm &amp; Place
     </h1>
 
-    <!-- Divider -->
-    <div class="w-10 h-px bg-gold mb-8"></div>
+    <!-- Sub-brand -->
+    <p class="font-sans font-light"
+       style="font-size: clamp(12px, 1.9vw, 22px); letter-spacing: 0.35em; text-transform: uppercase; margin-bottom: 3rem; color: rgba(245,239,232,0.75);">
+      Miami Interiors
+    </p>
 
-    <!-- Body -->
-    <div class="article-body">
-
-      <p>We just finished a studio at Viceroy Brickell — south-facing, 539 square feet, set up as a furnished short-term rental. The client's brief: bright, warm, and like home. As interior designers working in Brickell, we hear that brief often. In a building this polished, it takes more precision than most people expect.</p>
-
-      <!-- Stats -->
-      <div class="stat-row">
-        <div class="stat-cell">
-          <span class="stat-value">539 SF</span>
-          <span class="stat-label">Unit Size</span>
-        </div>
-        <div class="stat-cell">
-          <span class="stat-value">6 wks</span>
-          <span class="stat-label">Duration</span>
-        </div>
-        <div class="stat-cell">
-          <span class="stat-value">+25%</span>
-          <span class="stat-label">Rent Premium</span>
-        </div>
-      </div>
-
-      <h2>What Makes Viceroy Brickell Different as a Design Project</h2>
-
-      <p>Viceroy Brickell is a Related Group development, designed by Arquitectonica with interiors by Meyer Davis. The bones are exceptional — Italian porcelain floors, Italkraft cabinetry, floor-to-ceiling impact glass. The building does a lot of the heavy lifting.</p>
-
-      <p>What it doesn't do is make a studio feel like three rooms. An open-plan studio without defined zones reads as one undifferentiated space regardless of how good the furniture is. For a furnished rental competing with other units in the same building, that's a problem. Guests notice.</p>
-
-      <h2>How We Zoned a Viceroy Brickell Studio Without Building Walls</h2>
-
-      <p>The central decision was zoning — creating a bedroom, a home office, and a living area without sacrificing the openness that makes a small unit feel large.</p>
-
-      <p>We used a double-sided bookcase as a soft divider between the sleeping area and the office. It reads as furniture, not a partition. Both sides are finished and functional, so the space stays open while each zone has its own identity. Guests understand intuitively where to sleep, where to work, where to unwind — without a floor plan.</p>
-
-      <div class="pull-quote">
-        <p>For wall covering, we chose a textured wallpaper that catches and shifts with the south light throughout the day. It adds depth without weight, and moves the unit from new construction to something more considered.</p>
-      </div>
-
-      <p>Materials throughout: wood, linen, travertine. These finishes bring warmth to a building with strong, polished bones. The Italian porcelain and cabinetry are beautiful but cool. The textiles and wood tones make the unit feel lived-in rather than staged.</p>
-
-      <h2>Lighting in Brickell Condos: The Highest-Leverage Detail Most Investors Skip</h2>
-
-      <p>Lighting is where we see the widest gap between well-furnished and poorly-furnished units at Viceroy Brickell — and across Miami luxury condo buildings generally.</p>
-
-      <p>The most common mistakes: fixtures centered on the ceiling rather than positioned over the zone they're meant to serve, and decorative pendants that fight the building's contemporary aesthetic instead of working with it. A chandelier that belongs in a traditional home looks wrong against floor-to-ceiling glass and porcelain floors.</p>
-
-      <p>In this project, lighting was a zoning tool as much as a design element. Simple, well-placed fixtures — over the dining area, at the bedside, in the workspace. Each one anchors its zone. The result is a unit that feels cohesive at any hour, not just when the south exposure is doing the work.</p>
-
-      <p>For investors furnishing units in Brickell Miami buildings: lighting is the highest-leverage, most under-invested element in most rental units. It's also the easiest to get right with a clear plan.</p>
-
-      <h2>Who Rents at Viceroy Brickell — and Why It Matters for Your Numbers</h2>
-
-      <p>Viceroy Brickell attracts a specific renter. The building suits people who want a residence that performs both personally and professionally, in Miami's financial core. A significant share are international — buyers and renters from Argentina, Colombia, Brazil, and Mexico make up a large segment of Brickell's investor base, most purchasing specifically for rental income.</p>
-
-      <p>The building permits short-term rentals of 30 days or more, up to 12 times per year. That flexibility makes it particularly attractive for this profile.</p>
-
-      <p>Your guests are well-traveled. Many have stayed in five-star hotels and high-end furnished rentals across multiple cities. They notice when the lighting feels off, when the zones aren't clear, when the materials feel cheap relative to the building's finishes. Thoughtful interior design in Miami rental units isn't an aesthetic decision — it's a revenue decision. It shows in reviews, repeat bookings, and your ability to hold the nightly rate.</p>
-
-    </div>
-
-    <!-- CTA block -->
-    <div class="mt-14 pt-10 border-t border-brown-100">
-      <div class="section-label">
-        <span class="font-sans text-[11px] text-brown-400 uppercase tracking-[0.18em]">Work with us</span>
-      </div>
-      <p class="font-display text-brown-500 leading-snug mb-6" style="font-size:clamp(1.4rem,3.5vw,2rem); letter-spacing:0.02em; font-weight:400;">
-        Furnishing a unit at Viceroy Brickell<br>or another Brickell condo?
-      </p>
-      <p class="font-body text-[0.95rem] text-brown-400 leading-relaxed mb-7 max-w-md">
-        Palm &amp; Place works with investors and owners across Brickell and Miami on furnished rentals designed to perform — visually and financially. Share a few details and we'll follow up within 24 hours.
-      </p>
-      <a href="/#contact" class="btn-primary">
+    <!-- CTAs -->
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href="#contact" class="btn-primary">
         Start Your Project
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-      </a>
-    </div>
-
-    <!-- Back to journal -->
-    <div class="mt-12 pt-8 border-t border-brown-100">
-      <a href="blog.html" class="font-sans text-xs uppercase tracking-[0.16em] text-brown-400 hover:text-brown-500 transition-colors inline-flex items-center gap-2">
-        <svg class="w-3.5 h-3.5 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        Back to Journal
+        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
       </a>
     </div>
 
   </div>
-</article>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2" aria-hidden="true">
+    <span class="font-sans text-[9px] tracking-[0.22em] uppercase" style="color:rgba(245,239,232,0.5);">Scroll</span>
+    <div class="w-px h-7 animate-pulse rounded-full" style="background:rgba(245,239,232,0.3);"></div>
+  </div>
+</section>
 
 
-<!-- ═══ FOOTER ═══ -->
+<!-- ═══════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════ -->
+<section id="services" aria-label="Our services" class="py-24 sm:py-32" style="background:#35302a;">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <div class="section-label reveal">
+      <span class="font-sans text-[11px] uppercase tracking-[0.18em]" style="color:#C9A86C;">Our Services</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+
+      <!-- Column 1 — Investors & Developers -->
+      <article class="service-card rounded-2xl p-8 lg:p-10 reveal reveal-d1" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);" aria-label="For Investors and Developers">
+
+        <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Investors &amp; Developers</p>
+
+        <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Rental Property, Instant Interiors</h3>
+
+        <div class="space-y-4">
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            Turn a vacant unit into a rental-ready property — fast. We handle everything: sourcing, procurement, and installation of all furnishings, fixtures, textiles, and art. You approve the concept; we deliver the finished space, ready for your first tenant.
+          </p>
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            Professionally designed and furnished properties command higher rents and shorter vacancy periods. A well-appointed unit attracts quality tenants and justifies premium pricing — directly improving your return.
+          </p>
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            We work with condo investors and developers across Miami who need a reliable, design-forward partner — not another variable to manage. Projects can be completed in as little as 6 weeks.
+          </p>
+        </div>
+
+      </article>
+
+      <!-- Column 2 — Homeowners -->
+      <article class="service-card rounded-2xl p-8 lg:p-10 reveal reveal-d2" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);" aria-label="For Homeowners">
+
+        <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Homeowners</p>
+
+        <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Your Home, Designed</h3>
+
+        <div class="space-y-4">
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            Whether you've just moved in or are ready to refresh your space, we bring the full design process to you — curating furnishings, textiles, fixtures, decor, and art that reflect how you actually live.
+          </p>
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            No construction. No overwhelm. Just a cohesive, finished space without the stress of doing it yourself.
+          </p>
+          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+            Available for primary residences, second homes, and vacation properties throughout South Florida.
+          </p>
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     WHO WE ARE
+═══════════════════════════════════════ -->
+<section id="who-we-are" aria-label="Who We Are" class="py-24 sm:py-32" style="background:#35302a;">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text col -->
+      <div class="reveal">
+        <div class="section-label" style="margin-bottom:1.25rem;">
+          <span class="font-sans text-[11px] uppercase tracking-[0.18em]" style="color:#C9A86C;">Who We Are</span>
+        </div>
+
+        <h2 class="font-display font-normal leading-tight mb-8"
+            style="font-size: clamp(2rem, 4vw, 3rem); color:#f5efe8;">
+          Design with precision.<br>
+          <em class="italic" style="color:#C9A86C;">Delivered.</em>
+        </h2>
+
+        <div class="space-y-5">
+          <p class="font-body leading-[1.85] text-[0.95rem]" style="color:rgba(245,239,232,0.72);">
+            Palm &amp; Place is a Miami interior design studio. We handle furnishings, textiles, fixtures, and art — from concept to installation.
+          </p>
+          <p class="font-body leading-[1.85] text-[0.95rem]" style="color:rgba(245,239,232,0.72);">
+            Our founder trained as an architectural designer and spent years managing large-scale construction projects. That background shows in how we work: every project has a clear scope, a real timeline, and someone accountable for seeing it through.
+          </p>
+          <p class="font-body leading-[1.85] text-[0.95rem]" style="color:rgba(245,239,232,0.72);">
+            For investors and developers, that means units that lease faster and hold higher rents. For homeowners, a space that finally feels like yours — without spending months coordinating vendors yourself.
+          </p>
+          <p class="font-body leading-[1.85] text-[0.95rem]" style="color:rgba(245,239,232,0.72);">
+            We work with condo investors, developers, and homeowners across Miami.
+          </p>
+        </div>
+
+        <div class="mt-10">
+          <a href="#contact" class="btn-primary" style="background:#C9A86C; color:#35302a;">
+            Start Your Project
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stat col -->
+      <div class="grid grid-cols-2 gap-5 reveal reveal-d1">
+
+        <div class="rounded-2xl p-7" style="background:rgba(245,239,232,0.06);">
+          <p class="font-display text-4xl font-normal mb-2" style="color:#C9A86C;">6 wk</p>
+          <p class="font-sans text-xs uppercase tracking-[0.16em]" style="color:rgba(245,239,232,0.45);">Typical project delivery</p>
+        </div>
+
+        <div class="rounded-2xl p-7" style="background:rgba(245,239,232,0.06);">
+          <p class="font-display text-4xl font-normal mb-2" style="color:#C9A86C;">100%</p>
+          <p class="font-sans text-xs uppercase tracking-[0.16em]" style="color:rgba(245,239,232,0.45);">Turnkey — concept to install</p>
+        </div>
+
+        <div class="rounded-2xl p-7 col-span-2" style="background:rgba(201,168,108,0.1); border:1px solid rgba(201,168,108,0.2);">
+          <p class="font-body leading-[1.8] text-[0.9rem] italic" style="color:rgba(245,239,232,0.65);">
+            "A well-appointed unit attracts quality tenants and justifies premium pricing — directly improving your return."
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     OUR PROCESS
+═══════════════════════════════════════ -->
+<section id="process" aria-label="Our Process" class="py-24 sm:py-32" style="background:#35302a;">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <div class="section-label reveal" style="margin-bottom:1rem;">
+      <span class="font-sans text-[11px] uppercase tracking-[0.18em]" style="color:#C9A86C;">Our Process</span>
+    </div>
+
+    <h2 class="font-display font-normal mb-3 reveal reveal-d1"
+        style="font-size: clamp(2rem, 4vw, 3rem); color:#f5efe8; line-height:1.2;">
+      You approve it.
+    </h2>
+    <h2 class="font-display font-normal mb-14 reveal reveal-d1"
+        style="font-size: clamp(2rem, 4vw, 3rem); color:#C9A86C; font-style:italic; line-height:1.2;">
+      We handle the rest.
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+      <!-- 01 -->
+      <article class="rounded-2xl p-7 reveal reveal-d1" style="background:rgba(245,239,232,0.05); border:1px solid rgba(245,239,232,0.08);">
+        <p class="font-display text-5xl font-normal mb-4" style="color:rgba(201,168,108,0.18); line-height:1;">01</p>
+        <h3 class="font-display text-xl font-normal mb-3" style="color:#f5efe8;">Discovery</h3>
+        <p class="font-body text-sm leading-relaxed" style="color:rgba(245,239,232,0.55);">One call. We learn your space, your timeline, and what a finished project means to you.</p>
+      </article>
+
+      <!-- 02 -->
+      <article class="rounded-2xl p-7 reveal reveal-d2" style="background:rgba(245,239,232,0.05); border:1px solid rgba(245,239,232,0.08);">
+        <p class="font-display text-5xl font-normal mb-4" style="color:rgba(201,168,108,0.18); line-height:1;">02</p>
+        <h3 class="font-display text-xl font-normal mb-3" style="color:#f5efe8;">Concept</h3>
+        <p class="font-body text-sm leading-relaxed" style="color:rgba(245,239,232,0.55);">You receive a full concept and itemized proposal. Nothing moves until you say yes.</p>
+      </article>
+
+      <!-- 03 -->
+      <article class="rounded-2xl p-7 reveal reveal-d3" style="background:rgba(245,239,232,0.05); border:1px solid rgba(245,239,232,0.08);">
+        <p class="font-display text-5xl font-normal mb-4" style="color:rgba(201,168,108,0.18); line-height:1;">03</p>
+        <h3 class="font-display text-xl font-normal mb-3" style="color:#f5efe8;">Design</h3>
+        <p class="font-body text-sm leading-relaxed" style="color:rgba(245,239,232,0.55);">We refine until every detail is locked. Your sign-off is required before we order a single item.</p>
+      </article>
+
+      <!-- 04 -->
+      <article class="rounded-2xl p-7 reveal reveal-d1" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);">
+        <p class="font-display text-5xl font-normal mb-4" style="color:rgba(201,168,108,0.3); line-height:1;">04</p>
+        <h3 class="font-display text-xl font-normal mb-3" style="color:#C9A86C;">Procurement</h3>
+        <p class="font-body text-sm leading-relaxed" style="color:rgba(245,239,232,0.6);">We source, negotiate, and coordinate every vendor. You don't manage a single call.</p>
+      </article>
+
+      <!-- 05 -->
+      <article class="rounded-2xl p-7 reveal reveal-d2" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);">
+        <p class="font-display text-5xl font-normal mb-4" style="color:rgba(201,168,108,0.3); line-height:1;">05</p>
+        <h3 class="font-display text-xl font-normal mb-3" style="color:#C9A86C;">Installation</h3>
+        <p class="font-body text-sm leading-relaxed" style="color:rgba(245,239,232,0.6);">Everything arrives on a confirmed date. Delivery, placement, and styling — handled start to finish.</p>
+      </article>
+
+      <!-- 06 -->
+      <article class="rounded-2xl p-7 reveal reveal-d3" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);">
+        <p class="font-display text-5xl font-normal mb-4" style="color:rgba(201,168,108,0.3); line-height:1;">06</p>
+        <h3 class="font-display text-xl font-normal mb-3" style="color:#C9A86C;">Walkthrough</h3>
+        <p class="font-body text-sm leading-relaxed" style="color:rgba(245,239,232,0.6);">We walk the finished space together. If anything isn't right, we fix it.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PORTFOLIO
+═══════════════════════════════════════ -->
+<section id="portfolio" aria-label="Portfolio" class="py-24 sm:py-32 bg-cream" style="position:relative; overflow:hidden;">
+
+  <!-- Left arrow — margin, shown on slide 2 -->
+  <button id="portfolio-prev" aria-label="Previous project"
+    style="display:none; position:absolute; left:1.5rem; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:1px solid rgba(88,77,64,0.2); background:#f5efe8; cursor:pointer; align-items:center; justify-content:center; transition:background 0.2s; z-index:10; box-shadow:0 2px 12px rgba(53,48,42,0.1);"
+    onmouseover="this.style.background='#35302a'; this.querySelector('svg').style.stroke='#f5efe8';"
+    onmouseout="this.style.background='#f5efe8'; this.querySelector('svg').style.stroke='#584d40';">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" style="stroke:#584d40;">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+    </svg>
+  </button>
+
+  <!-- Right arrow — margin, shown on slide 1 -->
+  <button id="portfolio-next" aria-label="Next project"
+    style="position:absolute; right:1.5rem; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:1px solid rgba(88,77,64,0.2); background:#f5efe8; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.2s; z-index:10; box-shadow:0 2px 12px rgba(53,48,42,0.1);"
+    onmouseover="this.style.background='#35302a'; this.querySelector('svg').style.stroke='#f5efe8';"
+    onmouseout="this.style.background='#f5efe8'; this.querySelector('svg').style.stroke='#584d40';">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" style="stroke:#584d40;">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+    </svg>
+  </button>
+
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <!-- Section label -->
+    <div class="reveal mb-10">
+      <div class="section-label">
+        <span class="font-sans text-[11px] text-brown-400 uppercase tracking-[0.18em]">Portfolio</span>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div style="overflow:hidden;">
+      <div id="portfolio-track" style="display:flex; transition:transform 0.55s cubic-bezier(0.4,0,0.2,1); will-change:transform; align-items:flex-start;">
+
+        <!-- ══ SLIDE 1 — Viceroy Residences ══ -->
+        <div style="min-width:100%; box-sizing:border-box;">
+          <div style="margin-bottom:1.75rem;">
+            <h2 class="font-display font-normal leading-tight mb-2" style="font-size:clamp(2rem,4vw,3rem); color:#35302a;">Viceroy Brickell Residences</h2>
+            <p class="font-sans font-light text-brown-400" style="font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase;">Studio Unit · Brickell, Miami</p>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr auto; gap:0; align-items:stretch;">
+            <!-- Video -->
+            <div class="rounded-2xl overflow-hidden" style="aspect-ratio:16/9; background:#000; border:1px solid rgba(201,168,108,0.45);">
+              <video
+                src="Viceroy_Studio2313_Portfolio.mp4"
+                autoplay loop muted playsinline
+                class="w-full h-full object-cover"
+              ></video>
+            </div>
+            <!-- Stats -->
+            <div style="width:260px; margin-left:2.5rem; flex-shrink:0;">
+              <p class="font-sans text-[9px] uppercase tracking-[0.2em] text-brown-300 mb-4">Project at a Glance</p>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(88,77,64,0.1);">
+
+                <div class="flex flex-col justify-between p-4 bg-cream">
+                  <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Unit Size</span>
+                  <div><p class="font-display text-2xl font-normal text-brown-500 leading-none">539</p><p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-1">sq ft</p></div>
+                </div>
+
+                <div class="flex flex-col justify-between p-4 bg-cream">
+                  <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Unit Type</span>
+                  <div><p class="font-display text-lg font-normal text-brown-500 leading-tight">Studio</p><p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-1">1 Bathroom</p></div>
+                </div>
+
+                <div class="flex flex-col justify-between p-4 bg-cream">
+                  <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Duration</span>
+                  <div><p class="font-display text-2xl font-normal text-brown-500 leading-none">6</p><p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-1">weeks</p></div>
+                </div>
+
+                <div class="flex flex-col justify-between p-4 bg-cream">
+                  <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Rent Premium</span>
+                  <div><p class="font-display text-2xl font-normal text-brown-500 leading-none">+25%</p><p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-1">vs unfurnished</p></div>
+                </div>
+
+                <div class="flex flex-col justify-between p-4 bg-cream">
+                  <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Product</span>
+                  <p class="font-body text-[0.72rem] text-brown-500 leading-snug">Instant Interior<br>Furnished Rental</p>
+                </div>
+
+                <div class="flex flex-col justify-between p-4 bg-cream">
+                  <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Scope</span>
+                  <p class="font-body text-[0.7rem] text-brown-500 leading-snug">Wallpaper, Lighting, Furniture, Art &amp; Accessories, Housewares</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div><!-- /slide 1 -->
+
+        <!-- ══ SLIDE 2 — Coming Soon ══ -->
+        <div style="min-width:100%; box-sizing:border-box;">
+          <div style="margin-bottom:1.75rem;">
+            <h2 class="font-display font-normal leading-tight mb-2" style="font-size:clamp(2rem,4vw,3rem); color:#35302a;">Coming Soon</h2>
+            <p class="font-sans font-light text-brown-400" style="font-size:0.8rem; letter-spacing:0.2em; text-transform:uppercase;">Next Project</p>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr auto; gap:0; align-items:stretch;">
+            <!-- Video placeholder -->
+            <div class="rounded-2xl overflow-hidden flex items-center justify-center" style="aspect-ratio:16/9; background:#ede6dc; border:1px solid rgba(88,77,64,0.12);">
+              <p class="font-display text-xl font-normal text-brown-300">More projects in progress.</p>
+            </div>
+            <!-- Stats placeholder -->
+            <div style="width:260px; margin-left:2.5rem; flex-shrink:0;">
+              <p class="font-sans text-[9px] uppercase tracking-[0.2em] text-brown-300 mb-4">Project at a Glance</p>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(88,77,64,0.1);">
+                <div class="p-4 bg-cream col-span-2 flex items-center justify-center" style="min-height:200px;">
+                  <p class="font-sans text-[10px] uppercase tracking-[0.18em] text-brown-300">Coming soon</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /slide 2 -->
+
+      </div><!-- /track -->
+    </div><!-- /slider -->
+
+    <!-- Dots -->
+    <div style="display:flex; justify-content:center; gap:8px; margin-top:2rem;">
+      <div class="portfolio-dot" data-index="0" style="width:6px; height:6px; border-radius:50%; background:#35302a; cursor:pointer; transition:background 0.2s;"></div>
+      <div class="portfolio-dot" data-index="1" style="width:6px; height:6px; border-radius:50%; background:rgba(88,77,64,0.2); cursor:pointer; transition:background 0.2s;"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  var track = document.getElementById('portfolio-track');
+  var next  = document.getElementById('portfolio-next');
+  var prev  = document.getElementById('portfolio-prev');
+  var dots  = document.querySelectorAll('.portfolio-dot');
+  var current = 0;
+  var total   = 2;
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = 'translateX(-' + (index * 100) + '%)';
+    dots.forEach(function(d, i) {
+      d.style.background = i === index ? '#35302a' : 'rgba(88,77,64,0.2)';
+    });
+    // Show/hide arrows
+    next.style.display = current < total - 1 ? 'flex' : 'none';
+    prev.style.display = current > 0 ? 'flex' : 'none';
+  }
+
+  next.addEventListener('click', function() { if (current < total - 1) goTo(current + 1); });
+  prev.addEventListener('click', function() { if (current > 0) goTo(current - 1); });
+  dots.forEach(function(d) {
+    d.addEventListener('click', function() { goTo(parseInt(d.dataset.index)); });
+  });
+})();
+</script>
+
+
+<!-- ═══════════════════════════════════════
+     SOCIAL MEDIA
+═══════════════════════════════════════ -->
+<section id="social" aria-label="Follow us on social media">
+  <div class="grid grid-cols-1 sm:grid-cols-3">
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/palm.and.place?igsh=Nno3dWhpb2JoYWs1&utm_source=qr"
+       target="_blank" rel="noopener noreferrer"
+       class="relative block overflow-hidden group" style="aspect-ratio:1/1;"
+       aria-label="Follow Palm & Place on Instagram">
+      <img src="Instagram.jpg.jpeg" alt="Instagram"
+           class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+           loading="lazy">
+      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/55 transition-colors duration-300"></div>
+      <span class="absolute inset-0 flex items-center justify-center font-sans tracking-[0.3em] text-sm font-light"
+            style="color:#f5efe8; font-family:'ofelia-text',sans-serif; letter-spacing:0.3em;">
+        INSTAGRAM
+      </span>
+    </a>
+
+    <!-- YouTube -->
+    <div class="relative overflow-hidden" style="aspect-ratio:1/1;">
+      <img src="youtube.jpg.jpeg" alt="YouTube"
+           class="w-full h-full object-cover object-center"
+           loading="lazy">
+      <div class="absolute inset-0 bg-black/40"></div>
+      <span class="absolute inset-0 flex items-center justify-center font-sans tracking-[0.3em] text-sm font-light"
+            style="color:#f5efe8; font-family:'ofelia-text',sans-serif; letter-spacing:0.3em;">
+        YOUTUBE
+      </span>
+    </div>
+
+    <!-- Blog -->
+    <a href="blog.html"
+       class="relative block overflow-hidden group" style="aspect-ratio:1/1;"
+       aria-label="Read the Palm & Place blog">
+      <img src="blog.jpg.jpeg" alt="Blog"
+           class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+           loading="lazy">
+      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/55 transition-colors duration-300"></div>
+      <span class="absolute inset-0 flex items-center justify-center font-sans tracking-[0.3em] text-sm font-light"
+            style="color:#f5efe8; font-family:'ofelia-text',sans-serif; letter-spacing:0.3em;">
+        BLOG
+      </span>
+    </a>
+
+  </div>
+</section>
+
+
+
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════ -->
+<section id="contact" aria-label="Contact" class="py-24 sm:py-32" style="background:#35302a;">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+      <!-- Left col — copy -->
+      <div class="reveal">
+        <div class="section-label" style="margin-bottom:1rem;">
+          <span class="font-sans text-[11px] uppercase tracking-[0.18em]" style="color:#C9A86C;">Contact</span>
+        </div>
+        <h2 class="font-display font-normal leading-tight mb-6"
+            style="font-size: clamp(2rem, 4vw, 3rem); color:#f5efe8;">
+          Your project<br>
+          <em class="italic" style="color:#C9A86C;">starts here.</em>
+        </h2>
+        <p class="font-body text-[0.95rem] leading-relaxed mb-12" style="color:rgba(245,239,232,0.65);">
+          Share a few details below. We'll follow up within 24 hours to arrange your complimentary consultation.
+        </p>
+
+        <!-- Trust signals -->
+        <div class="space-y-5">
+          <div class="flex items-center gap-4">
+            <div class="w-px h-8 flex-shrink-0" style="background:rgba(201,168,108,0.4);"></div>
+            <p class="font-sans text-sm" style="color:rgba(245,239,232,0.55); letter-spacing:0.03em;">Response within 24 hours</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-px h-8 flex-shrink-0" style="background:rgba(201,168,108,0.4);"></div>
+            <p class="font-sans text-sm" style="color:rgba(245,239,232,0.55); letter-spacing:0.03em;">Complimentary first consultation</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-px h-8 flex-shrink-0" style="background:rgba(201,168,108,0.4);"></div>
+            <p class="font-sans text-sm" style="color:rgba(245,239,232,0.55); letter-spacing:0.03em;">No commitment required</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right col — form -->
+      <div class="reveal reveal-d1">
+
+        <!-- Success message (shown after submit) -->
+        <div id="form-success" class="hidden text-center py-14 rounded-2xl" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.25);">
+          <p class="font-display text-2xl font-normal mb-2" style="color:#C9A86C;">Email sent!</p>
+          <p class="font-body text-sm" style="color:rgba(245,239,232,0.65);">Thanks for reaching out — we'll follow up within 24 hours.</p>
+        </div>
+
+        <form
+          id="contact-form"
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="space-y-5"
+        >
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+          <!-- Name -->
+          <div>
+            <label for="name" class="block font-sans text-[10px] uppercase tracking-[0.18em] mb-2" style="color:rgba(201,168,108,0.8);">Name</label>
+            <input type="text" id="name" name="name" required
+              class="w-full rounded-xl px-4 py-3.5 text-sm font-body focus:outline-none transition"
+              style="background:rgba(245,239,232,0.07); border:1px solid rgba(245,239,232,0.12); color:#f5efe8;"
+              placeholder="Your name">
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label for="email" class="block font-sans text-[10px] uppercase tracking-[0.18em] mb-2" style="color:rgba(201,168,108,0.8);">Email</label>
+            <input type="email" id="email" name="email" required
+              class="w-full rounded-xl px-4 py-3.5 text-sm font-body focus:outline-none transition"
+              style="background:rgba(245,239,232,0.07); border:1px solid rgba(245,239,232,0.12); color:#f5efe8;"
+              placeholder="your@email.com">
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label for="phone" class="block font-sans text-[10px] uppercase tracking-[0.18em] mb-2" style="color:rgba(201,168,108,0.8);">Phone <span style="color:rgba(245,239,232,0.3);">(optional)</span></label>
+            <input type="tel" id="phone" name="phone"
+              class="w-full rounded-xl px-4 py-3.5 text-sm font-body focus:outline-none transition"
+              style="background:rgba(245,239,232,0.07); border:1px solid rgba(245,239,232,0.12); color:#f5efe8;"
+              placeholder="+1 (305) 000-0000">
+          </div>
+
+          <!-- Client type -->
+          <div>
+            <p class="block font-sans text-[10px] uppercase tracking-[0.18em] mb-3" style="color:rgba(201,168,108,0.8);">I am a</p>
+            <div class="flex gap-3">
+              <label class="flex-1 cursor-pointer">
+                <input type="checkbox" name="client_type" value="Investor / Developer" class="sr-only peer client-type-input">
+                <div class="client-type-box rounded-xl px-4 py-3 text-center text-xs font-sans transition-all"
+                     style="border:1px solid rgba(245,239,232,0.12); color:rgba(245,239,232,0.55); letter-spacing:0.04em;"
+                     onmouseover="if(!this.previousElementSibling.checked) this.style.borderColor='rgba(201,168,108,0.5)'"
+                     onmouseout="if(!this.previousElementSibling.checked) this.style.borderColor='rgba(245,239,232,0.12)'">
+                  Investor / Developer
+                </div>
+              </label>
+              <label class="flex-1 cursor-pointer">
+                <input type="checkbox" name="client_type" value="Homeowner" class="sr-only peer client-type-input">
+                <div class="client-type-box rounded-xl px-4 py-3 text-center text-xs font-sans transition-all"
+                     style="border:1px solid rgba(245,239,232,0.12); color:rgba(245,239,232,0.55); letter-spacing:0.04em;"
+                     onmouseover="if(!this.previousElementSibling.checked) this.style.borderColor='rgba(201,168,108,0.5)'"
+                     onmouseout="if(!this.previousElementSibling.checked) this.style.borderColor='rgba(245,239,232,0.12)'">
+                  Homeowner
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Project details -->
+          <div>
+            <label for="project" class="block font-sans text-[10px] uppercase tracking-[0.18em] mb-2" style="color:rgba(201,168,108,0.8);">About your project</label>
+            <textarea id="project" name="project" rows="4"
+              class="w-full rounded-xl px-4 py-3.5 text-sm font-body focus:outline-none transition resize-none"
+              style="background:rgba(245,239,232,0.07); border:1px solid rgba(245,239,232,0.12); color:#f5efe8;"
+              placeholder="Location, scope, timeline — whatever feels relevant."></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit"
+            class="w-full font-sans text-sm py-4 rounded-full transition-all duration-200 hover:-translate-y-0.5"
+            style="background:#C9A86C; color:#35302a; letter-spacing:0.08em; text-transform:uppercase; font-size:0.75rem;">
+            Send Enquiry
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
 <footer class="bg-brown-900 text-white" role="contentinfo">
   <div class="max-w-6xl mx-auto px-5 sm:px-8 pt-16 pb-10 sm:pt-20 sm:pb-12">
+
+    <!-- Bottom bar -->
     <div class="border-t border-white/[0.07] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-[0.75rem] text-white/25">© 2025 Palm &amp; Place. All rights reserved.</p>
-      <a href="/" class="text-[0.75rem] text-white/25 hover:text-white/50 transition-colors">palmandplace.com</a>
+      <p class="text-[0.75rem] text-white/25">© 2026 Palm &amp; Place. All rights reserved.</p>
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-5">
+        <a href="mailto:info@palmandplace.com" aria-label="Email Palm & Place" class="flex items-center gap-1.5 text-[0.75rem] text-white/40 hover:text-white transition-colors">
+          <svg style="width:17.6px;height:17.6px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          info@palmandplace.com
+        </a>
+        <a href="https://www.instagram.com/palm.and.place?igsh=Nno3dWhpb2JoYWs1&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Palm & Place on Instagram" class="flex items-center gap-1.5 text-[0.75rem] text-white/40 hover:text-white transition-colors">
+          <svg style="width:17.6px;height:17.6px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @palm.and.place
+        </a>
+      </div>
     </div>
+
   </div>
 </footer>
 
 
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════ -->
 <script>
 (function () {
-  var btn       = document.getElementById('menu-btn');
-  var menu      = document.getElementById('mobile-menu');
-  var iconOpen  = document.getElementById('icon-open');
-  var iconClose = document.getElementById('icon-close');
+  'use strict';
+
+  /* ── Mobile menu ── */
+  var btn        = document.getElementById('menu-btn');
+  var menu       = document.getElementById('mobile-menu');
+  var iconOpen   = document.getElementById('icon-open');
+  var iconClose  = document.getElementById('icon-close');
+
   btn.addEventListener('click', function () {
     var isOpen = menu.classList.contains('open');
     menu.classList.toggle('open');
     iconOpen.classList.toggle('hidden', !isOpen);
     iconClose.classList.toggle('hidden', isOpen);
     btn.setAttribute('aria-expanded', String(!isOpen));
+    btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
   });
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+    });
+  });
+
+  /* ── Scroll progress bar ── */
+  var bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', function () {
+    var scrolled = document.documentElement.scrollTop;
+    var total    = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    bar.style.width = ((scrolled / total) * 100).toFixed(1) + '%';
+  }, { passive: true });
+
+  /* ── Navbar shadow on scroll ── */
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function () {
+    navbar.classList.toggle('shadow-md', window.scrollY > 24);
+  }, { passive: true });
+
+  /* ── Scroll reveal (IntersectionObserver) ── */
+  var reveals = document.querySelectorAll('.reveal');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(function (el) { observer.observe(el); });
+
+  /* ── Client type selection — visible highlight on click ── */
+  var clientTypeInputs = document.querySelectorAll('.client-type-input');
+  clientTypeInputs.forEach(function (input) {
+    input.addEventListener('change', function () {
+      clientTypeInputs.forEach(function (i) {
+        var box = i.nextElementSibling;
+        if (i.checked) {
+          box.style.borderColor = '#C9A86C';
+          box.style.background = 'rgba(201,168,108,0.18)';
+          box.style.color = '#f5efe8';
+        } else {
+          box.style.borderColor = 'rgba(245,239,232,0.12)';
+          box.style.background = 'transparent';
+          box.style.color = 'rgba(245,239,232,0.55)';
+        }
+      });
+    });
+  });
+
+  /* ── Contact form — submit via fetch, show confirmation in place ── */
+  var contactForm = document.getElementById('contact-form');
+  var formSuccess = document.getElementById('form-success');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var anyClientTypeChecked = Array.prototype.some.call(clientTypeInputs, function (i) { return i.checked; });
+      if (!anyClientTypeChecked) {
+        alert('Please select at least one option: Investor / Developer or Homeowner.');
+        return;
+      }
+
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      var originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      var formData = new FormData(contactForm);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+        .then(function () {
+          contactForm.style.display = 'none';
+          formSuccess.classList.remove('hidden');
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+          alert('Something went wrong sending your enquiry. Please try again or email us directly.');
+        });
+    });
+  }
+
 })();
 </script>
 
