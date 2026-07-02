@@ -589,7 +589,7 @@
             <!-- Video -->
             <div class="rounded-2xl overflow-hidden" style="aspect-ratio:16/9; background:#000; border:1px solid rgba(201,168,108,0.45);">
               <video
-                src="Viceroy_Studio2313_Portfolio.mp4"
+                src="viceroy-2313-portfolio.mp4"
                 autoplay loop muted playsinline
                 class="w-full h-full object-cover"
               ></video>
@@ -1013,7 +1013,10 @@
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString()
       })
-        .then(function () {
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Form submission failed with status ' + response.status);
+          }
           contactForm.style.display = 'none';
           formSuccess.classList.remove('hidden');
         })
