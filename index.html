@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- SEO -->
-  <title>Palm & Place | Custom Designs, Couture Tailoring & Ready-to-Wear Collections</title>
-  <meta name="description" content="Palm & Place offers bespoke custom designs, couture tailoring, and curated ready-to-wear collections. Timeless elegance meets modern vision.">
+  <title>Palm & Place | Miami Interior Design for Investors, Developers & Homeowners</title>
+  <meta name="description" content="Palm & Place is a Miami interior design studio handling furnishings, textiles, fixtures, and art from concept to installation. Rental-ready in as little as 6 weeks.">
   <link rel="canonical" href="https://www.palmandplace.com/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Palm & Place | Timeless Elegance Meets Modern Vision">
-  <meta property="og:description" content="Custom designs, couture tailoring & ready-to-wear collections. Where the vintage meets modern.">
-  <meta property="og:image" content="https://www.palmandplace.com/P-P_Green-100.jpg">
+  <meta property="og:title" content="Palm & Place | Miami Interior Design, Concept to Installation">
+  <meta property="og:description" content="Turnkey interior design for Miami condo investors, developers, and homeowners. You approve it, we handle the rest.">
+  <meta property="og:image" content="https://www.palmandplace.com/hero.jpg.jpeg">
   <meta property="og:url" content="https://www.palmandplace.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Palm & Place">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Palm & Place | Timeless Elegance Meets Modern Vision">
-  <meta name="twitter:description" content="Custom designs, couture tailoring & ready-to-wear collections.">
-  <meta name="twitter:image" content="https://www.palmandplace.com/P-P_Green-100.jpg">
+  <meta name="twitter:title" content="Palm & Place | Miami Interior Design, Concept to Installation">
+  <meta name="twitter:description" content="Turnkey interior design for Miami condo investors, developers, and homeowners.">
+  <meta name="twitter:image" content="https://www.palmandplace.com/hero.jpg.jpeg">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -162,6 +162,66 @@
     .service-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 24px 48px rgba(53,48,42,0.14);
+    }
+
+    /* ── Flip card (Investors & Developers scope reveal) ── */
+    .flip-card { perspective: 2200px; cursor: pointer; }
+    .flip-card-inner {
+      position: relative;
+      transition: transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      transform-style: preserve-3d;
+    }
+    .flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .flip-card-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .scope-toggle {
+      position: relative;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      margin-top: 1.75rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(201,168,108,0.45);
+      background: rgba(201,168,108,0.08);
+      color: #C9A86C;
+      font-family: 'ofelia-text', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 400;
+      cursor: pointer;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .flip-card:hover .scope-toggle {
+      background: rgba(201,168,108,0.18);
+      border-color: rgba(201,168,108,0.85);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(201,168,108,0.18);
+    }
+    .scope-toggle-icon { transition: transform 0.4s ease; }
+    .flip-card:hover .scope-toggle-icon { transform: rotate(90deg); }
+    .flip-card.is-flipped:hover .scope-toggle-icon { transform: rotate(0deg); }
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem 1.5rem;
+      list-style: none; padding: 0; margin: 0;
+    }
+    .scope-grid li {
+      position: relative;
+      padding-left: 1.15rem;
+    }
+    .scope-grid li::before {
+      content: '';
+      position: absolute; left: 0; top: 0.55em;
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #C9A86C;
     }
     .testimonial-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -356,45 +416,131 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
 
       <!-- Column 1 — Investors & Developers -->
-      <article class="service-card rounded-2xl p-8 lg:p-10 reveal reveal-d1" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);" aria-label="For Investors and Developers">
+      <article class="service-card flip-card rounded-2xl p-8 lg:p-10 reveal reveal-d1" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);" aria-label="For Investors and Developers">
+        <div class="flip-card-inner">
 
-        <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Investors &amp; Developers</p>
+          <!-- Front -->
+          <div class="flip-card-front">
+            <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Investors &amp; Developers</p>
 
-        <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Rental Property, Instant Interiors</h3>
+            <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Rental Property, Instant Interiors</h3>
 
-        <div class="space-y-4">
-          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
-            Turn a vacant unit into a rental-ready property — fast. We handle everything: sourcing, procurement, and installation of all furnishings, fixtures, textiles, and art. You approve the concept; we deliver the finished space, ready for your first tenant.
-          </p>
-          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
-            Professionally designed and furnished properties command higher rents and shorter vacancy periods. A well-appointed unit attracts quality tenants and justifies premium pricing — directly improving your return.
-          </p>
-          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
-            We work with condo investors and developers across Miami who need a reliable, design-forward partner — not another variable to manage. Projects can be completed in as little as 6 weeks.
-          </p>
+            <div class="space-y-4">
+              <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+                Turn a vacant unit into a rental-ready property — fast. We handle everything: sourcing, procurement, and installation of all furnishings, fixtures, textiles, and art. You approve the concept; we deliver the finished space, ready for your first tenant.
+              </p>
+              <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+                Professionally designed and furnished properties command higher rents and shorter vacancy periods. A well-appointed unit attracts quality tenants and justifies premium pricing — directly improving your return.
+              </p>
+              <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+                We work with condo investors and developers across Miami who need a reliable, design-forward partner — not another variable to manage. Projects can be completed in as little as 6 weeks.
+              </p>
+            </div>
+
+            <button type="button" class="scope-toggle scope-toggle-front" aria-expanded="false">
+              <span>View Full Scope of Service</span>
+              <svg class="w-3 h-3 flex-shrink-0 scope-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Back -->
+          <div class="flip-card-back">
+            <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Investors &amp; Developers</p>
+
+            <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Full Service</h3>
+
+            <ul class="scope-grid mb-6">
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Furniture</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Textiles</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Lighting</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Fixtures</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Wall Covering &amp; Paint</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Art</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Decor</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Housewares</li>
+            </ul>
+
+            <p class="font-sans text-[0.72rem] uppercase tracking-[0.12em]" style="color:rgba(201,168,108,0.85);">
+              Design &middot; Installation &middot; Project Management<br>
+              6 Weeks, Start to Finish
+            </p>
+
+            <button type="button" class="scope-toggle scope-toggle-back" aria-expanded="true">
+              <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5 5-5m-5 5h12"/>
+              </svg>
+              <span>Back to Overview</span>
+            </button>
+          </div>
+
         </div>
-
       </article>
 
       <!-- Column 2 — Homeowners -->
-      <article class="service-card rounded-2xl p-8 lg:p-10 reveal reveal-d2" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);" aria-label="For Homeowners">
+      <article class="service-card flip-card rounded-2xl p-8 lg:p-10 reveal reveal-d2" style="background:rgba(201,168,108,0.08); border:1px solid rgba(201,168,108,0.2);" aria-label="For Homeowners">
+        <div class="flip-card-inner">
 
-        <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Homeowners</p>
+          <!-- Front -->
+          <div class="flip-card-front">
+            <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Homeowners</p>
 
-        <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Your Home, Designed</h3>
+            <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Your Home, Designed</h3>
 
-        <div class="space-y-4">
-          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
-            Whether you've just moved in or are ready to refresh your space, we bring the full design process to you — curating furnishings, textiles, fixtures, decor, and art that reflect how you actually live.
-          </p>
-          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
-            No construction. No overwhelm. Just a cohesive, finished space without the stress of doing it yourself.
-          </p>
-          <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
-            Available for primary residences, second homes, and vacation properties throughout South Florida.
-          </p>
+            <div class="space-y-4">
+              <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+                Whether you've just moved in or are ready to refresh your space, we bring the full design process to you — curating furnishings, textiles, fixtures, decor, and art that reflect how you actually live.
+              </p>
+              <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+                No construction. No overwhelm. Just a cohesive, finished space without the stress of doing it yourself.
+              </p>
+              <p class="font-body leading-[1.8] text-[0.9rem]" style="color:rgba(245,239,232,0.78);">
+                Available for primary residences, second homes, and vacation properties throughout South Florida.
+              </p>
+            </div>
+
+            <button type="button" class="scope-toggle scope-toggle-front" aria-expanded="false">
+              <span>View Full Scope of Service</span>
+              <svg class="w-3 h-3 flex-shrink-0 scope-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Back -->
+          <div class="flip-card-back">
+            <p class="font-sans text-[10px] font-light uppercase tracking-[0.2em] text-gold mb-5">For Homeowners</p>
+
+            <h3 class="font-display text-3xl font-normal text-cream leading-snug mb-6">Full Service</h3>
+
+            <ul class="scope-grid mb-6">
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Furniture</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Textiles</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Lighting</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Fixtures</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Wall Covering &amp; Paint</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Art</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Decor</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Housewares</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Millwork</li>
+              <li class="font-body text-[0.9rem]" style="color:rgba(245,239,232,0.85);">Outdoor</li>
+            </ul>
+
+            <p class="font-sans text-[0.72rem] uppercase tracking-[0.12em]" style="color:rgba(201,168,108,0.85);">
+              Design &middot; Installation &middot; Project Management<br>
+              Complete Customization, Room by Room
+            </p>
+
+            <button type="button" class="scope-toggle scope-toggle-back" aria-expanded="true">
+              <svg class="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17l-5-5 5-5m-5 5h12"/>
+              </svg>
+              <span>Back to Overview</span>
+            </button>
+          </div>
+
         </div>
-
       </article>
 
     </div>
@@ -424,13 +570,13 @@
 
         <div class="space-y-5">
           <p class="font-body leading-[1.85] text-[0.95rem]" style="color:rgba(245,239,232,0.72);">
-            Palm &amp; Place is a Miami interior design studio. We handle furnishings, textiles, fixtures, and art — from concept to installation.
+            Palm &amp; Place is a Miami interior design studio. We handle furnishings, textiles, fixtures, and art: from concept to installation.
           </p>
           <p class="font-body leading-[1.85] text-[0.95rem]" style="color:rgba(245,239,232,0.72);">
             Our founder trained as an architectural designer and spent years managing large-scale construction projects. That background shows in how we work: every project has a clear scope, a real timeline, and someone accountable for seeing it through.
           </p>
           <p class="font-body leading-[1.85] text-[0.95rem]" style="color:rgba(245,239,232,0.72);">
-            For investors and developers, that means units that lease faster and hold higher rents. For homeowners, a space that finally feels like yours — without spending months coordinating vendors yourself.
+            For investors and developers, that means units that lease faster and hold higher rents. For homeowners, a space that finally feels like yours without spending months coordinating vendors yourself.
           </p>
           <p class="font-body leading-[1.85] text-[0.95rem]" style="color:rgba(245,239,232,0.72);">
             We work with condo investors, developers, and homeowners across Miami.
@@ -451,8 +597,8 @@
       <div class="grid grid-cols-2 gap-5 reveal reveal-d1">
 
         <div class="rounded-2xl p-7" style="background:rgba(245,239,232,0.06);">
-          <p class="font-display text-4xl font-normal mb-2" style="color:#C9A86C;">6 wk</p>
-          <p class="font-sans text-xs uppercase tracking-[0.16em]" style="color:rgba(245,239,232,0.45);">Typical project delivery</p>
+          <p class="font-display text-4xl font-normal mb-2" style="color:#C9A86C;">1</p>
+          <p class="font-sans text-xs uppercase tracking-[0.16em]" style="color:rgba(245,239,232,0.45);">Single point of contact, start to finish</p>
         </div>
 
         <div class="rounded-2xl p-7" style="background:rgba(245,239,232,0.06);">
@@ -462,7 +608,7 @@
 
         <div class="rounded-2xl p-7 col-span-2" style="background:rgba(201,168,108,0.1); border:1px solid rgba(201,168,108,0.2);">
           <p class="font-body leading-[1.8] text-[0.9rem] italic" style="color:rgba(245,239,232,0.65);">
-            "A well-appointed unit attracts quality tenants and justifies premium pricing — directly improving your return."
+            "Every project has a clear scope, a real timeline, and someone accountable for seeing it through."
           </p>
         </div>
 
@@ -599,34 +745,39 @@
               <p class="font-sans text-[9px] uppercase tracking-[0.2em] text-brown-300 mb-4">Project at a Glance</p>
               <div style="display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(88,77,64,0.1);">
 
-                <div class="flex flex-col justify-between p-4 bg-cream">
+                <div class="flex flex-col p-4 bg-cream">
                   <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Unit Size</span>
-                  <div><p class="font-display text-2xl font-normal text-brown-500 leading-none">539</p><p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-1">sq ft</p></div>
+                  <p class="font-display text-2xl font-normal text-brown-500 leading-none">539</p>
+                  <p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-2">sq ft</p>
                 </div>
 
-                <div class="flex flex-col justify-between p-4 bg-cream">
+                <div class="flex flex-col p-4 bg-cream">
                   <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Unit Type</span>
-                  <div><p class="font-display text-lg font-normal text-brown-500 leading-tight">Studio</p><p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-1">1 Bathroom</p></div>
+                  <p class="font-display text-lg font-normal text-brown-500 leading-none">Studio</p>
+                  <p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-2">1 Bathroom</p>
                 </div>
 
-                <div class="flex flex-col justify-between p-4 bg-cream">
+                <div class="flex flex-col p-4 bg-cream">
                   <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Duration</span>
-                  <div><p class="font-display text-2xl font-normal text-brown-500 leading-none">6</p><p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-1">weeks</p></div>
+                  <p class="font-display text-2xl font-normal text-brown-500 leading-none">6</p>
+                  <p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-2">weeks</p>
                 </div>
 
-                <div class="flex flex-col justify-between p-4 bg-cream">
+                <div class="flex flex-col p-4 bg-cream">
                   <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Rent Premium</span>
-                  <div><p class="font-display text-2xl font-normal text-brown-500 leading-none">+25%</p><p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-1">vs unfurnished</p></div>
+                  <p class="font-display text-2xl font-normal text-brown-500 leading-none">+25%</p>
+                  <p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-2">vs unfurnished</p>
                 </div>
 
-                <div class="flex flex-col justify-between p-4 bg-cream">
+                <div class="flex flex-col p-4 bg-cream">
                   <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Product</span>
-                  <p class="font-body text-[0.72rem] text-brown-500 leading-snug">Instant Interior<br>Furnished Rental</p>
+                  <p class="font-body text-[0.7rem] text-brown-500 leading-snug">Instant Interior Furnished Rental</p>
                 </div>
 
-                <div class="flex flex-col justify-between p-4 bg-cream">
+                <div class="flex flex-col p-4 bg-cream">
                   <span class="font-sans text-[8px] uppercase tracking-[0.15em] text-brown-300 mb-3">Scope</span>
-                  <p class="font-body text-[0.7rem] text-brown-500 leading-snug">Wallpaper, Lighting, Furniture, Art &amp; Accessories, Housewares</p>
+                  <p class="font-display text-lg font-normal text-brown-500 leading-none">Full Service</p>
+                  <p class="font-sans text-[8px] uppercase tracking-[0.1em] text-brown-300 mt-2">Wallpaper, Lighting, Furniture, Art &amp; Accessories, Housewares</p>
                 </div>
 
               </div>
@@ -697,6 +848,32 @@
 })();
 </script>
 
+<script>
+(function() {
+  var cards = document.querySelectorAll('.flip-card');
+  cards.forEach(function(card) {
+    var frontBtn = card.querySelector('.scope-toggle-front');
+    var backBtn  = card.querySelector('.scope-toggle-back');
+
+    function setFlipped(flipped) {
+      card.classList.toggle('is-flipped', flipped);
+      if (frontBtn) frontBtn.setAttribute('aria-expanded', flipped ? 'true' : 'false');
+      if (backBtn)  backBtn.setAttribute('aria-expanded', flipped ? 'true' : 'false');
+    }
+
+    card.addEventListener('click', function() {
+      setFlipped(!card.classList.contains('is-flipped'));
+    });
+
+    // Prevent double-toggling when the buttons themselves are clicked
+    // (click already bubbles up to the card listener above).
+    [frontBtn, backBtn].forEach(function(btn) {
+      if (btn) btn.addEventListener('click', function(e) { e.stopPropagation(); setFlipped(!card.classList.contains('is-flipped')); });
+    });
+  });
+})();
+</script>
+
 
 <!-- ═══════════════════════════════════════
      SOCIAL MEDIA
@@ -719,17 +896,20 @@
       </span>
     </a>
 
-    <!-- YouTube -->
-    <div class="relative overflow-hidden" style="aspect-ratio:1/1;">
-      <img src="youtube.jpg.jpeg" alt="YouTube"
-           class="w-full h-full object-cover object-center"
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/share/1BV1bUTiqe/?mibextid=wwXIfr"
+       target="_blank" rel="noopener noreferrer"
+       class="relative block overflow-hidden group" style="aspect-ratio:1/1;"
+       aria-label="Follow Palm & Place on Facebook">
+      <img src="youtube.jpg.jpeg" alt="Facebook"
+           class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
            loading="lazy">
-      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 bg-black/40 group-hover:bg-black/55 transition-colors duration-300"></div>
       <span class="absolute inset-0 flex items-center justify-center font-sans tracking-[0.3em] text-sm font-light"
             style="color:#f5efe8; font-family:'ofelia-text',sans-serif; letter-spacing:0.3em;">
-        YOUTUBE
+        FACEBOOK
       </span>
-    </div>
+    </a>
 
     <!-- Blog -->
     <a href="blog.html"
